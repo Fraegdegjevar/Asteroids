@@ -3,8 +3,9 @@ import pygame
 
 def main():
     pygame.init()
-    
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    GameClock = pygame.time.Clock()
+    dt = 0
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) # type: ignore
     
     while True:
         for event in pygame.event.get():
@@ -13,11 +14,9 @@ def main():
         
         screen.fill(color = (1,1,1))
         pygame.display.flip()
-    
-    print("Starting Asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-    
+        
+        #limit frame rate to 60 fps and store delta time in dt
+        dt = GameClock.tick(60) / 1000
 
 if __name__ == "__main__":
     main()
