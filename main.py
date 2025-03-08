@@ -39,7 +39,7 @@ def main():
         for asteroid in asteroids:
             if asteroid.collides_with(player):
                 print("Game over!")
-                sys.exit()
+                sys.exit(0)
             
             #after checking if the asteroid has killed the player, check if it
             # collides with any shots on screen and remove both if so.
